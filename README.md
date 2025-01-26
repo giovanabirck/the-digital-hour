@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# The Digital Day
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+**The Digital Day** is a conceptual web project inspired by Don Norman's (The Design of Everyday Things, 1988) idea of a new way of reestructuring time by reimagining how we perceive it. Inspired by the idea of transitioning from the traditional time system to a **digital time system**, the project showcases how a day can be divided into **10 digital hours**, each consisting of **100 digital minutes**, and each minute containing **100 digital seconds**.
 
-## Available Scripts
+This system introduces a more intuitive metric-based approach to timekeeping, simplifying conversions and eliminating the need for AM/PM cycles.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## How It Works
+The digital day is calculated based on the current real-world time:
+- **10 digital hours** = 1 real-world day (24 hours)
+- **1 digital hour** = 2.4 real-world hours (144 real-world minutes)
+- **1 digital minute** = 1.44 real-world minutes (86.4 real-world seconds)
+- **1 digital second** = 0.864 real-world seconds
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
+- **React**: To create the interactive UI components
+- **CSS**: For styling, animations, and transitions
+- **JavaScript (ES6)**: For calculations and dynamic updates
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
+1. Hover over the "The Digital Day" header to learn more about the digital time system presented by Don Norman
+2. Observe the digital clock in real-time as it updates every second
+3. Explore the concept and consider how adopting digital time could impact your day-to-day activities
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+Developed by [Giovana Birck](https://www.giovanabirck.com/). Feel free to reach out with questions or feedback!
