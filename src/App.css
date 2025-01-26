@@ -109,6 +109,7 @@ span {
   font-size: 168px;
   margin-bottom: 80px;
   font-family: "VT323", serif;
+  text-align: center;
 }
 
 footer {
@@ -127,4 +128,63 @@ a {
 a:hover {
   background-color: #00e;
   color: #FAFAFA;
+}
+
+
+/* MEDIA QUERIES FOR RESPONSIVENESS */
+
+/* Tablets and Large Phones */
+@media (max-width: 768px) {
+  .project-name {
+    width: 60%;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .digital-display {
+    font-size: 120px;
+  }
+
+  .info-box {
+    font-size: 16px; 
+    padding: 8px 12px;
+  }
+
+  footer {
+    font-size: 18px;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .project-name {
+    width: 80%;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .digital-display {
+    font-size: 100px;
+  }
+
+  .info-box {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  footer {
+    font-size: 16px;
+  }
 }
