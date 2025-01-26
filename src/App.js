@@ -71,7 +71,7 @@ function App() {
           <p>
             Each digital hour would last exactly 2.4 times an old hour: 144 old minutes. So the old one-hour period of the 
             schoolroom or television program would be replaced with a half-digital hour period, or 50 digital minutes--only 
-            20 percent longer than the current hour. We could adapt to the differences in duration with relative ease.""
+            20 percent longer than the current hour. We could adapt to the differences in duration with relative ease."
           </p>
           <p>
             - The Design of Everyday Things, Don Norman (1988)
