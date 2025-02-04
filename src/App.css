@@ -127,14 +127,22 @@ h2 {
   color: #333;
   height: 0;
   overflow: hidden;
-  transition: height 0.5s ease-in-out, opacity 0.4s ease-in-out, border-width 0.4s ease-in-out;
+  transition: 
+    height 0.5s ease-in-out, 
+    opacity 0.4s ease-in-out, 
+    border-width 0.4s ease-in-out
+  ;
 }
 
 .info-box.visible {
   height: 325%; 
   border-width: 1px;
   opacity: 1;
-  transition: height 0.5s ease-in-out, opacity 0.4s ease-in-out, border-width 0.4s ease-in-out;
+  transition: 
+    height 0.5s ease-in-out, 
+    opacity 0.4s ease-in-out, 
+    border-width 0.4s ease-in-out
+  ;
 }
 
 .info-box p {
@@ -181,85 +189,14 @@ a:hover {
   color: #FAFAFA;
 }
 
-/* @keyframes glitch {
-  0% {
-    transform: translateX(0) skew(0deg);
-    opacity: 1;
-    clip-path: inset(0);
-  }
-  10% {
-    transform: translateX(-15px) skew(-5deg);
-    opacity: 0.8;
-    clip-path: inset(0 0 40% 0);
-    background: linear-gradient(90deg, #0000EE, #fafafa);
-  }
-  20% {
-    transform: translateX(20px) skew(3deg);
-    opacity: 0.6;
-    clip-path: inset(0 0 40% 0);
-    background: linear-gradient(90deg, #0000EE, #fafafa);
-  }
-  30% {
-    transform: translateX(-10px) skew(-7deg);
-    opacity: 0.7;
-    clip-path: inset(0 0 30% 0);
-    background: linear-gradient(90deg, #0000EE, #fafafa);
-  }
-  40% {
-    transform: translateX(10px) skew(5deg);
-    opacity: 0.5;
-    clip-path: inset(0 0 30% 0);
-    background: linear-gradient(90deg, #0000EE, #fafafa);
-  }
-  50% {
-    transform: translateX(0) skew(0deg);
-    opacity: 1;
-    clip-path: inset(0);
-  }
-  100% {
-    transform: translateX(0) skew(0deg);
-    opacity: 1;
-    clip-path: inset(0);
-  }
+@keyframes glitch {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(2px, 2px); }
+  100% { transform: translate(0, 0); }
 }
-
-.glitch-transition {
-  animation: glitch 0.8s ease-in-out forwards, screen-switch 0s 0.8s forwards;
-}
-
-@keyframes screen-switch {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.white-screen:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #0000EE;
-  z-index: -1;
-  opacity: 0;
-  animation: background-glitch 0.8s ease-in-out forwards;
-}
-
-@keyframes background-glitch {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-} */
 
 
 /* MEDIA QUERIES FOR RESPONSIVENESS */
@@ -290,12 +227,14 @@ a:hover {
   footer {
     font-size: 18px;
   }
+
 }
 
 /* Phones */
 @media (max-width: 480px) {
   .project-name {
-    width: 60%;
+    width: 200px;
+    border-width: 1px;
   }
 
   h1 {
@@ -323,12 +262,22 @@ a:hover {
   footer {
     font-size: 16px;
   }
+
+  .glitch-transition {
+    animation: glitch 0.1s linear infinite;
+    filter: contrast(200%) brightness(150%) hue-rotate(10deg);
+  }
+
+  .floating-text {
+    display: none;
+  }
 }
 
-/* Phones */
+/* Small Phones */
 @media (max-width: 375px) {
   .project-name {
-    width: 60%;
+    width: 200px;
+    border-width: 1px;
   }
 
   h1 {
@@ -359,6 +308,15 @@ a:hover {
 
   a {
     padding: 16px;
+  }
+
+  .floating-text {
+    display: none;
+  }
+
+  .glitch-transition {
+    animation: glitch 0.1s linear infinite;
+    filter: contrast(200%) brightness(150%) hue-rotate(10deg);
   }
 }
  

@@ -7,20 +7,53 @@ function App() {
     minutes: 0,
     seconds: 0,
   });
-  const [regularTime, setRegularTime] = useState(""); // Add state for regular time
+
+  const [regularTime, setRegularTime] = useState("");
   const [showInfoBox, setShowInfoBox] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isWhiteScreen, setIsWhiteScreen] = useState(false);
-  const [isGlitching, setIsGlitching] = useState(false); // State to control glitch animation
+  const [isCardOpen, setIsCardOpen] = useState(false);
+  const [isGlitching, setIsGlitching] = useState(false);
+  const isMobile = window.innerWidth <= 768;
 
-  const handleScreenFlip = () => {
-    setIsGlitching(true); // Trigger the glitch effect
-    setIsWhiteScreen((prevState) => !prevState); // Immediately flip the screen
-
-    setTimeout(() => {
-      setIsGlitching(false); // End glitch effect after the glitch animation
-    }, 800); // Delay for glitch effect duration
+  const handleClick = () => {
+    setIsWhiteScreen((prev) => !prev);
   };
+
+  const handleScreenTap = (e) => {
+    const tappedOnDigitalDay = e.target.closest(".project-name");
+
+    if (isCardOpen) {
+      setIsCardOpen(false);
+      return;
+    }
+    if (tappedOnDigitalDay) {
+      setIsCardOpen(true);
+      return;
+    }
+    setIsWhiteScreen((prev) => !prev);
+  };
+
+
+  const handleDigitalDayClick = () => {
+    if (isMobile) {
+      setIsCardOpen(true);
+    }
+  };
+
+  useEffect(() => {
+    if (isMobile) {
+      const interval = setInterval(() => {
+        setIsGlitching(true); 
+
+        setTimeout(() => {
+          setIsGlitching(false)
+        }, 500);
+      }, 10000);
+
+      return () => clearInterval(interval);
+    }
+  }, [isMobile]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,19 +67,12 @@ function App() {
       const totalMillisecondsInDay = 24 * 60 * 60 * 1000;
       const totalDigitalMillisecondsInDay = 10 * 100 * 100 * 100;
 
-      const digitalElapsedMilliseconds =
-        (elapsedTime / totalMillisecondsInDay) * totalDigitalMillisecondsInDay;
-
-      const digitalHours = Math.floor(digitalElapsedMilliseconds / (100 * 100 * 100));
-      const digitalMinutes = Math.floor(
-        (digitalElapsedMilliseconds % (100 * 100 * 100)) / (100 * 100)
-      );
-      const digitalSeconds = Math.floor((digitalElapsedMilliseconds % (100 * 100)) / 100);
+      const digitalElapsedMilliseconds = (elapsedTime / totalMillisecondsInDay) * totalDigitalMillisecondsInDay;
 
       setDigitalTime({
-        hours: digitalHours,
-        minutes: digitalMinutes,
-        seconds: digitalSeconds,
+        hours: Math.floor(digitalElapsedMilliseconds / (100 * 100 * 100)),
+        minutes: Math.floor((digitalElapsedMilliseconds % (100 * 100 * 100)) / (100 * 100)),
+        seconds: Math.floor((digitalElapsedMilliseconds % (100 * 100)) / 100),
       });
 
       setRegularTime(now.toLocaleTimeString("en-GB", { hour12: false }));
@@ -65,9 +91,15 @@ function App() {
   }, []);
 
   return (
+    // <div 
+    //   className={`App ${isWhiteScreen ? "white-screen" : ""} ${isGlitching ? "glitch-transition" : ""}`}      
+    //   onClick={handleScreenFlip}
+    // >
     <div 
-      className={`App ${isWhiteScreen ? "white-screen" : ""} ${isGlitching ? "glitch-transition" : ""}`}      
-      onClick={handleScreenFlip}
+      className={`App ${isWhiteScreen ? "white-screen" : ""} ${isGlitching ? "glitch-transition" : ""}`}
+      // onClick={handleClick}
+      // onClick={isMobile ? handleScreenTap : undefined} 
+      onClick={handleScreenTap}
     >
       {!isWhiteScreen && (
         <>
@@ -83,6 +115,7 @@ function App() {
               className="project-name"
               onMouseEnter={() => setShowInfoBox(true)}
               onMouseLeave={() => setShowInfoBox(false)}
+              onClick={handleDigitalDayClick} 
             >
               <h1>The Digital Day</h1>
             </div>
@@ -160,7 +193,6 @@ function App() {
               <a className="a-normal-stuff" href="https://www.giovanabirck.com/" target="_blank">Giovana Birck</a></p>
           </footer>
         </div>
-        
       )}
     </div>
   );
